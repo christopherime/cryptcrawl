@@ -1,0 +1,52 @@
+version: "2"
+run:
+  timeout: 5m
+  modules-download-mode: readonly
+  tests: true
+  skip-dirs:
+    - .git
+    - .github
+    - .vscode
+    - .ssh
+
+linters:
+  disable-all: true
+  enable:
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - typecheck
+    - unused
+    - gofmt
+    - goimports
+    - misspell
+    - revive
+    - gosec
+    - unconvert
+    - unparam
+    - whitespace
+
+linters-settings:
+  goimports:
+    local-prefixes: cryptcrawl
+  govet:
+    check-shadowing: true
+  revive:
+    rules:
+      - name: exported
+        arguments:
+          - disableStutteringCheck
+  gosec:
+    excludes:
+      - G204 # Subprocess launched with a potential tainted input or cmd arguments
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gosec
+        - errcheck
+  max-issues-per-linter: 0
+  max-same-issues: 0

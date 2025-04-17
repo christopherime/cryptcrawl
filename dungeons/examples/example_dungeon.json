@@ -1,0 +1,265 @@
+{
+  "name": "The Forgotten Crypt",
+  "description": "A dark and dangerous crypt filled with undead monsters and ancient treasures.",
+  "author": "CryptCrawl",
+  "version": "1.0.0",
+  "levels": [
+    {
+      "id": "level1",
+      "name": "Entrance Hall",
+      "description": "The entrance to the crypt. Dusty and abandoned.",
+      "width": 20,
+      "height": 10,
+      "layout": [
+        "####################",
+        "#........#.........#",
+        "#........#.........#",
+        "#........+.........#",
+        "#........#.........#",
+        "#........#.........#",
+        "#........#####.....#",
+        "#................E.#",
+        "#.S................#",
+        "####################"
+      ],
+      "rooms": [
+        {
+          "id": "entrance",
+          "name": "Entrance",
+          "description": "The entrance to the crypt.",
+          "x": 1,
+          "y": 1,
+          "width": 8,
+          "height": 6,
+          "doors": [
+            {
+              "x": 9,
+              "y": 3
+            }
+          ]
+        },
+        {
+          "id": "main_hall",
+          "name": "Main Hall",
+          "description": "The main hall of the crypt.",
+          "x": 10,
+          "y": 1,
+          "width": 9,
+          "height": 8,
+          "doors": [
+            {
+              "x": 9,
+              "y": 3
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        {
+          "monsterId": "skeleton",
+          "count": 2,
+          "minLevel": 1,
+          "maxLevel": 1,
+          "position": null,
+          "roomId": "main_hall"
+        },
+        {
+          "monsterId": "zombie",
+          "count": 1,
+          "minLevel": 1,
+          "maxLevel": 2,
+          "position": {
+            "x": 15,
+            "y": 5
+          },
+          "roomId": ""
+        }
+      ],
+      "items": [
+        {
+          "itemId": "gold",
+          "position": null,
+          "roomId": "entrance",
+          "chance": 0.8
+        },
+        {
+          "itemId": "health_potion",
+          "position": {
+            "x": 12,
+            "y": 2
+          },
+          "roomId": "",
+          "chance": 1
+        },
+        {
+          "itemId": "rusty_sword",
+          "position": null,
+          "roomId": "main_hall",
+          "chance": 0.5
+        }
+      ],
+      "startPos": {
+        "x": 2,
+        "y": 8
+      },
+      "exitPos": {
+        "x": 17,
+        "y": 7
+      }
+    }
+  ],
+  "monsters": [
+    {
+      "id": "skeleton",
+      "name": "Skeleton",
+      "description": "A reanimated skeleton wielding a rusty sword.",
+      "symbol": "S",
+      "color": "#ffffff",
+      "health": 5,
+      "damage": 2,
+      "levelScale": 1.5,
+      "abilities": null,
+      "lootTable": [
+        {
+          "itemId": "gold",
+          "chance": 0.7,
+          "minCount": 1,
+          "maxCount": 5
+        },
+        {
+          "itemId": "bone_shard",
+          "chance": 0.3,
+          "minCount": 1,
+          "maxCount": 3
+        }
+      ]
+    },
+    {
+      "id": "zombie",
+      "name": "Zombie",
+      "description": "A shambling corpse with rotting flesh.",
+      "symbol": "Z",
+      "color": "#00ff00",
+      "health": 8,
+      "damage": 1,
+      "levelScale": 1.2,
+      "abilities": null,
+      "lootTable": [
+        {
+          "itemId": "gold",
+          "chance": 0.5,
+          "minCount": 1,
+          "maxCount": 3
+        },
+        {
+          "itemId": "rotten_flesh",
+          "chance": 0.6,
+          "minCount": 1,
+          "maxCount": 2
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "gold",
+      "name": "Gold",
+      "description": "Shiny gold coins.",
+      "symbol": "$",
+      "color": "#ffff00",
+      "type": "currency",
+      "value": 1,
+      "effects": null
+    },
+    {
+      "id": "health_potion",
+      "name": "Health Potion",
+      "description": "A potion that restores health.",
+      "symbol": "!",
+      "color": "#ff0000",
+      "type": "consumable",
+      "value": 10,
+      "effects": [
+        {
+          "type": "heal",
+          "value": 5,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "id": "rusty_sword",
+      "name": "Rusty Sword",
+      "description": "An old, rusty sword. Still sharp enough to cut.",
+      "symbol": "/",
+      "color": "#aaaaaa",
+      "type": "weapon",
+      "value": 5,
+      "effects": [
+        {
+          "type": "damage",
+          "value": 2,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "id": "bone_shard",
+      "name": "Bone Shard",
+      "description": "A sharp shard of bone.",
+      "symbol": "*",
+      "color": "#ffffff",
+      "type": "material",
+      "value": 2,
+      "effects": null
+    },
+    {
+      "id": "rotten_flesh",
+      "name": "Rotten Flesh",
+      "description": "A piece of rotten flesh. Smells terrible.",
+      "symbol": "%",
+      "color": "#00aa00",
+      "type": "material",
+      "value": 1,
+      "effects": null
+    }
+  ],
+  "events": [
+    {
+      "id": "entrance_event",
+      "name": "Entrance Event",
+      "description": "An event that triggers when the player enters the dungeon.",
+      "trigger": "level_start",
+      "actions": [
+        {
+          "type": "message",
+          "target": "",
+          "value": "You enter the forgotten crypt. The air is stale and cold."
+        },
+        {
+          "type": "sound",
+          "target": "",
+          "value": "door_creak"
+        }
+      ]
+    },
+    {
+      "id": "skeleton_death",
+      "name": "Skeleton Death",
+      "description": "An event that triggers when a skeleton dies.",
+      "trigger": "monster_death",
+      "actions": [
+        {
+          "type": "message",
+          "target": "",
+          "value": "The skeleton crumbles to dust!"
+        },
+        {
+          "type": "sound",
+          "target": "",
+          "value": "bone_crunch"
+        }
+      ]
+    }
+  ]
+}

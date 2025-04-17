@@ -1,0 +1,503 @@
+{
+  "name": "The Forgotten Crypt",
+  "description": "A dark and dangerous crypt filled with undead monsters and ancient treasures.",
+  "author": "CryptCrawl",
+  "version": "1.0.0",
+  "levels": [
+    {
+      "id": "level1",
+      "name": "Entrance Hall",
+      "description": "The entrance to the crypt. Dusty and abandoned.",
+      "width": 20,
+      "height": 10,
+      "layout": [
+        "####################",
+        "#........#.........#",
+        "#........#.........#",
+        "#........+.........#",
+        "#........#.........#",
+        "#........#.........#",
+        "#........#####.....#",
+        "#................E.#",
+        "#.S................#",
+        "####################"
+      ],
+      "rooms": [
+        {
+          "id": "entrance",
+          "name": "Entrance",
+          "description": "The entrance to the crypt.",
+          "x": 1,
+          "y": 1,
+          "width": 8,
+          "height": 6,
+          "doors": [
+            {
+              "x": 9,
+              "y": 3
+            }
+          ]
+        },
+        {
+          "id": "main_hall",
+          "name": "Main Hall",
+          "description": "The main hall of the crypt.",
+          "x": 10,
+          "y": 1,
+          "width": 9,
+          "height": 8,
+          "doors": [
+            {
+              "x": 9,
+              "y": 3
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        {
+          "monsterId": "skeleton",
+          "count": 2,
+          "minLevel": 1,
+          "maxLevel": 1,
+          "roomId": "main_hall"
+        },
+        {
+          "monsterId": "zombie",
+          "count": 1,
+          "minLevel": 1,
+          "maxLevel": 2,
+          "position": {
+            "x": 15,
+            "y": 5
+          }
+        }
+      ],
+      "items": [
+        {
+          "itemId": "gold",
+          "roomId": "entrance",
+          "chance": 0.8
+        },
+        {
+          "itemId": "health_potion",
+          "position": {
+            "x": 12,
+            "y": 2
+          },
+          "chance": 1.0
+        },
+        {
+          "itemId": "rusty_sword",
+          "roomId": "main_hall",
+          "chance": 0.5
+        }
+      ],
+      "startPos": {
+        "x": 2,
+        "y": 8
+      },
+      "exitPos": {
+        "x": 17,
+        "y": 7
+      }
+    },
+    {
+      "id": "level2",
+      "name": "Crypt Depths",
+      "description": "The deeper levels of the crypt. Dark and foreboding.",
+      "width": 25,
+      "height": 15,
+      "layout": [
+        "#########################",
+        "#.....#.........#.......#",
+        "#.....#.........#.......#",
+        "#.....+.........+.......#",
+        "#.....#.........#.......#",
+        "#######.........#########",
+        "#.......................#",
+        "#.......................#",
+        "#.......................#",
+        "#########.......#########",
+        "#.......#.......#.......#",
+        "#.......#.......#.......#",
+        "#...S...+.......+...E...#",
+        "#.......#.......#.......#",
+        "#########################"
+      ],
+      "rooms": [
+        {
+          "id": "west_chamber",
+          "name": "West Chamber",
+          "description": "A small chamber in the western part of the crypt.",
+          "x": 1,
+          "y": 1,
+          "width": 6,
+          "height": 4,
+          "doors": [
+            {
+              "x": 6,
+              "y": 3
+            }
+          ]
+        },
+        {
+          "id": "east_chamber",
+          "name": "East Chamber",
+          "description": "A small chamber in the eastern part of the crypt.",
+          "x": 18,
+          "y": 1,
+          "width": 6,
+          "height": 4,
+          "doors": [
+            {
+              "x": 17,
+              "y": 3
+            }
+          ]
+        },
+        {
+          "id": "central_hall",
+          "name": "Central Hall",
+          "description": "The central hall connecting all chambers.",
+          "x": 7,
+          "y": 1,
+          "width": 11,
+          "height": 8,
+          "doors": [
+            {
+              "x": 6,
+              "y": 3
+            },
+            {
+              "x": 17,
+              "y": 3
+            }
+          ]
+        },
+        {
+          "id": "south_west",
+          "name": "South West Chamber",
+          "description": "A chamber in the south-western part of the crypt.",
+          "x": 1,
+          "y": 10,
+          "width": 8,
+          "height": 4,
+          "doors": [
+            {
+              "x": 8,
+              "y": 12
+            }
+          ]
+        },
+        {
+          "id": "south_east",
+          "name": "South East Chamber",
+          "description": "A chamber in the south-eastern part of the crypt.",
+          "x": 16,
+          "y": 10,
+          "width": 8,
+          "height": 4,
+          "doors": [
+            {
+              "x": 15,
+              "y": 12
+            }
+          ]
+        }
+      ],
+      "encounters": [
+        {
+          "monsterId": "skeleton",
+          "count": 3,
+          "minLevel": 2,
+          "maxLevel": 3,
+          "roomId": "central_hall"
+        },
+        {
+          "monsterId": "zombie",
+          "count": 2,
+          "minLevel": 2,
+          "maxLevel": 3,
+          "roomId": "east_chamber"
+        },
+        {
+          "monsterId": "wraith",
+          "count": 1,
+          "minLevel": 3,
+          "maxLevel": 4,
+          "roomId": "south_east"
+        }
+      ],
+      "items": [
+        {
+          "itemId": "gold",
+          "roomId": "west_chamber",
+          "chance": 0.9
+        },
+        {
+          "itemId": "health_potion",
+          "roomId": "central_hall",
+          "chance": 0.7
+        },
+        {
+          "itemId": "steel_sword",
+          "roomId": "south_east",
+          "chance": 0.4
+        },
+        {
+          "itemId": "shield",
+          "roomId": "east_chamber",
+          "chance": 0.5
+        }
+      ],
+      "startPos": {
+        "x": 4,
+        "y": 12
+      },
+      "exitPos": {
+        "x": 20,
+        "y": 12
+      }
+    }
+  ],
+  "monsters": [
+    {
+      "id": "skeleton",
+      "name": "Skeleton",
+      "description": "A reanimated skeleton wielding a rusty sword.",
+      "symbol": "S",
+      "color": "#ffffff",
+      "health": 5,
+      "damage": 2,
+      "levelScale": 1.5,
+      "abilities": [],
+      "lootTable": [
+        {
+          "itemId": "gold",
+          "chance": 0.7,
+          "minCount": 1,
+          "maxCount": 5
+        },
+        {
+          "itemId": "bone_shard",
+          "chance": 0.3,
+          "minCount": 1,
+          "maxCount": 3
+        }
+      ]
+    },
+    {
+      "id": "zombie",
+      "name": "Zombie",
+      "description": "A shambling corpse with rotting flesh.",
+      "symbol": "Z",
+      "color": "#00ff00",
+      "health": 8,
+      "damage": 1,
+      "levelScale": 1.2,
+      "abilities": [],
+      "lootTable": [
+        {
+          "itemId": "gold",
+          "chance": 0.5,
+          "minCount": 1,
+          "maxCount": 3
+        },
+        {
+          "itemId": "rotten_flesh",
+          "chance": 0.6,
+          "minCount": 1,
+          "maxCount": 2
+        }
+      ]
+    },
+    {
+      "id": "wraith",
+      "name": "Wraith",
+      "description": "A ghostly apparition that floats through the air.",
+      "symbol": "W",
+      "color": "#aaaaff",
+      "health": 12,
+      "damage": 3,
+      "levelScale": 1.3,
+      "abilities": ["phase"],
+      "lootTable": [
+        {
+          "itemId": "gold",
+          "chance": 0.8,
+          "minCount": 5,
+          "maxCount": 10
+        },
+        {
+          "itemId": "ectoplasm",
+          "chance": 0.7,
+          "minCount": 1,
+          "maxCount": 3
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "gold",
+      "name": "Gold",
+      "description": "Shiny gold coins.",
+      "symbol": "$",
+      "color": "#ffff00",
+      "type": "currency",
+      "value": 1,
+      "effects": []
+    },
+    {
+      "id": "health_potion",
+      "name": "Health Potion",
+      "description": "A potion that restores health.",
+      "symbol": "!",
+      "color": "#ff0000",
+      "type": "consumable",
+      "value": 10,
+      "effects": [
+        {
+          "type": "heal",
+          "value": 5,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "id": "rusty_sword",
+      "name": "Rusty Sword",
+      "description": "An old, rusty sword. Still sharp enough to cut.",
+      "symbol": "/",
+      "color": "#aaaaaa",
+      "type": "weapon",
+      "value": 5,
+      "effects": [
+        {
+          "type": "damage",
+          "value": 2,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "id": "steel_sword",
+      "name": "Steel Sword",
+      "description": "A well-crafted steel sword.",
+      "symbol": "/",
+      "color": "#cccccc",
+      "type": "weapon",
+      "value": 15,
+      "effects": [
+        {
+          "type": "damage",
+          "value": 4,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "id": "shield",
+      "name": "Shield",
+      "description": "A sturdy wooden shield.",
+      "symbol": ")",
+      "color": "#aa5500",
+      "type": "armor",
+      "value": 12,
+      "effects": [
+        {
+          "type": "defense",
+          "value": 2,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "id": "bone_shard",
+      "name": "Bone Shard",
+      "description": "A sharp shard of bone.",
+      "symbol": "*",
+      "color": "#ffffff",
+      "type": "material",
+      "value": 2,
+      "effects": []
+    },
+    {
+      "id": "rotten_flesh",
+      "name": "Rotten Flesh",
+      "description": "A piece of rotten flesh. Smells terrible.",
+      "symbol": "%",
+      "color": "#00aa00",
+      "type": "material",
+      "value": 1,
+      "effects": []
+    },
+    {
+      "id": "ectoplasm",
+      "name": "Ectoplasm",
+      "description": "A strange, glowing substance left behind by a wraith.",
+      "symbol": "~",
+      "color": "#aaaaff",
+      "type": "material",
+      "value": 8,
+      "effects": []
+    }
+  ],
+  "events": [
+    {
+      "id": "entrance_event",
+      "name": "Entrance Event",
+      "description": "An event that triggers when the player enters the dungeon.",
+      "trigger": "level_start",
+      "actions": [
+        {
+          "type": "message",
+          "target": "player",
+          "value": "You enter the forgotten crypt. The air is stale and cold."
+        },
+        {
+          "type": "sound",
+          "target": "global",
+          "value": "door_creak"
+        }
+      ]
+    },
+    {
+      "id": "skeleton_death",
+      "name": "Skeleton Death",
+      "description": "An event that triggers when a skeleton dies.",
+      "trigger": "monster_death",
+      "actions": [
+        {
+          "type": "message",
+          "target": "player",
+          "value": "The skeleton crumbles to dust!"
+        },
+        {
+          "type": "sound",
+          "target": "global",
+          "value": "bone_crunch"
+        }
+      ]
+    },
+    {
+      "id": "level2_entrance",
+      "name": "Level 2 Entrance",
+      "description": "An event that triggers when the player enters level 2.",
+      "trigger": "level_start",
+      "actions": [
+        {
+          "type": "message",
+          "target": "player",
+          "value": "You descend deeper into the crypt. The air grows colder and you hear distant moans."
+        },
+        {
+          "type": "sound",
+          "target": "global",
+          "value": "moan"
+        }
+      ]
+    }
+  ]
+}
